@@ -10,53 +10,74 @@
             padding: 0;
             height: 100%;
             width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f5f5f5;
         }
         .image-container {
             position: relative;
             max-width: 100%;
             height: auto;
-            margin: 0 auto; /* 水平居中 */
         }
         .image-container img {
             width: 100%;
             height: auto;
+            display: block;
         }
-        
-      @keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-      transform: translateY(0);
-    }
-    40% {
-      transform: translateY(-30px);
-    }
-    60% {
-      transform: translateY(-15px);
-    }
-  }
-
-  @keyframes blink {
-    0%, 100% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0;
-    }
-  }
-
-  .image-description {
-    animation: bounce 1s infinite, blink 0.5s infinite;
-    display: inline-block;
-    font-size: 24px;
-    color: purple; /* 设置字体颜色为紫色 */
-  }
+        .image-description {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            font-size: 24px;
+            color: purple;
+            white-space: nowrap;
+        }
+        .image-description span {
+            opacity: 0;
+            display: inline-block;
+            margin: 0 2px;
+            animation: bounce 1s ease-out;
+            animation-fill-mode: forwards;
+        }
+        @keyframes bounce {
+            0% {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="image-container">
         <img src="zaizai.jpg" alt="图片自我介绍">
-        <div class="image-description">
-            这是一张关于我的图片，记录了我的生活点滴和成长历程。
+        <div class="image-description" id="imageDescription">
+            <!-- 文字将在这里逐字添加 -->
         </div>
     </div>
+    <script>
+        const text = "这里是崽崽的小屋，欢迎主人来访，每次主人来访崽子好兴奋，好喜欢（未完待续，后面会继续开发）。";
+        const descriptionElement = document.getElementById('imageDescription');
+        let index = 0;
+
+        function addLetter() {
+            if (index < text.length) {
+                const span = document.createElement('span');
+                span.textContent = text[index];
+                span.style.animationDelay = `${index * 0.1}s`; // 设置动画延迟
+                descriptionElement.appendChild(span);
+                index++;
+                setTimeout(addLetter, 100); // 设置每个字出现的时间间隔
+            }
+        }
+
+        addLetter(); // 开始逐字添加文字
+    </script>
 </body>
 </html>
