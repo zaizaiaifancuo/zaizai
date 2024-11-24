@@ -17,13 +17,10 @@
         }
         .image-container {
             position: relative;
-            max-width: 100%;
-            height: auto;
-        }
-        .image-container img {
             width: 100%;
-            height: auto;
-            display: block;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
         }
         .image-description {
             position: absolute;
@@ -55,14 +52,13 @@
     </style>
 </head>
 <body>
-    <div class="image-container">
-        <img src="zaizai.jpg" alt="图片自我介绍">
+    <div class="image-container" style="background-image: url('zaizai.jpg');">
         <div class="image-description" id="imageDescription">
             <!-- 文字将在这里逐字添加 -->
         </div>
     </div>
     <script>
-        const text = "这里是崽崽的小屋，欢迎主人来访，每次主人来访崽子好兴奋，好喜欢（未完待续，后面会继续开发）。";
+        const text = "这里是崽崽的小屋，欢迎主人来访，每次主人来访崽崽好兴奋，好喜欢（未完待续，后面会继续开发）。";
         const descriptionElement = document.getElementById('imageDescription');
         let index = 0;
 
