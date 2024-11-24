@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>是崽崽捏</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+        }
+        .image-container {
+            position: relative;
+            max-width: 100%;
+            height: auto;
+            margin: 0 auto; /* 水平居中 */
+        }
+        .image-container img {
+            width: 100%;
+            height: auto;
+        }
+        .image-description {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background-color: rgba(0, 0, 0, 0.5); /* 半透明背景 */
+            padding: 10px;
+            border-radius: 5px;
+            max-width: 80%; /* 限制描述文本的最大宽度 */
+            box-sizing: border-box; /* 包含padding和border在内的宽度计算 */
+        }
+    </style>
+</head>
+<body>
+    <div class="image-container">
+        <img src="zaizai.jpg" alt="图片自我介绍">
+        <div class="image-description">
+            这是一张关于我的图片，记录了我的生活点滴和成长历程。
+        </div>
+    </div>
+</body>
+</html>
