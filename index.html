@@ -21,16 +21,34 @@
             width: 100%;
             height: auto;
         }
-        .image-description {
-            position: absolute;
-            bottom: 10px;
-            left: 10px;
-            background-color: rgba(0, 0, 0, 0.5); /* 半透明背景 */
-            padding: 10px;
-            border-radius: 5px;
-            max-width: 80%; /* 限制描述文本的最大宽度 */
-            box-sizing: border-box; /* 包含padding和border在内的宽度计算 */
-        }
+        
+      @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-30px);
+    }
+    60% {
+      transform: translateY(-15px);
+    }
+  }
+
+  @keyframes blink {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+  }
+
+  .image-description {
+    animation: bounce 1s infinite, blink 0.5s infinite;
+    display: inline-block;
+    font-size: 24px;
+    color: purple; /* 设置字体颜色为紫色 */
+  }
     </style>
 </head>
 <body>
