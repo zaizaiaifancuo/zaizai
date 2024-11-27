@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>是崽崽捏</title>
+    <title>崽崽的狗窝（仅主人）</title>
     <style>
         body, html {
             margin: 0;
@@ -60,10 +60,11 @@
         </div>
     </div>
     <script>
-        const text = "这里是崽崽的小屋，欢迎主人来访，每次主人来访崽崽好兴奋，好喜欢（未完待续，后面会继续开发）。";
+        const text = "今天是感恩节特辑，请主人点我接受崽崽的感恩节礼物。(*´∀ ˋ*) ";
         const descriptionElement = document.getElementById('imageDescription');
+        const linkURL = "https://likecheese.github.io/likecheese1/"; // 设置你的目标URL
         let index = 0;
-
+    
         function addLetter() {
             if (index < text.length) {
                 const span = document.createElement('span');
@@ -71,10 +72,21 @@
                 span.style.animationDelay = `${index * 0.1}s`; // 设置动画延迟
                 descriptionElement.appendChild(span);
                 index++;
-                setTimeout(addLetter, 100); // 设置每个字出现的时间间隔
+                if (index === text.length) {
+                    // 当所有文字都添加完毕后，创建链接
+                    const link = document.createElement('a');
+                    link.href = linkURL;
+                    link.textContent = text;
+                    link.style.animationDelay = '0s'; // 重置动画延迟
+                    link.style.display = 'inline-block'; // 确保链接可以显示为内联元素
+                    descriptionElement.innerHTML = ''; // 清空现有的文字
+                    descriptionElement.appendChild(link); // 添加链接
+                } else {
+                    setTimeout(addLetter, 100); // 设置每个字出现的时间间隔
+                }
             }
         }
-
+    
         addLetter(); // 开始逐字添加文字
     </script>
 </body>
